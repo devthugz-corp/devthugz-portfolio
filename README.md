@@ -47,3 +47,7 @@ npm (comes with Node.js)
 Git (for cloning and managing repositories)
 
 Installation
+
+
+## MODIFY BY R4zor08
+Way na modify
