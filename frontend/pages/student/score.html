@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Score | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Student | Quiz Result</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Student: John Doe</span>
+        <span class="chip">Quiz: Algebra Basics</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main app-main--top">
+    <div class="app-container">
+      <article class="card card--elevated" aria-labelledby="score-title">
+        <header class="card__header">
+          <p class="card__meta">Quiz result</p>
+          <h1 id="score-title" class="card__title">Your Score</h1>
+          <p class="card__subtitle">This page represents the <code>Result</code> object for a completed quiz.</p>
+        </header>
+        <div class="card__body">
+          <section class="score-summary" aria-label="Score summary">
+            <div class="score-summary__block">
+              <div class="score-summary__number">8 / 10</div>
+              <p>Total score</p>
+            </div>
+            <div class="score-summary__block">
+              <div class="score-summary__number">8</div>
+              <p>Correct answers</p>
+            </div>
+            <div class="score-summary__block">
+              <div class="score-summary__number">2</div>
+              <p>Incorrect answers</p>
+            </div>
+          </section>
+
+          <section class="score-answers" aria-label="Answer breakdown">
+            <article class="score-answer score-answer--correct">
+              <header class="score-answer__header">
+                <div>
+                  <div class="score-answer__label">Question 1</div>
+                  <h2 class="quiz-question__title">What is the value of x in the equation 2x + 3 = 7?</h2>
+                </div>
+                <span class="badge badge--success">Correct</span>
+              </header>
+              <p><strong>Your answer:</strong> B) 2</p>
+              <p><strong>Correct answer:</strong> B) 2</p>
+            </article>
+
+            <article class="score-answer score-answer--incorrect">
+              <header class="score-answer__header">
+                <div>
+                  <div class="score-answer__label">Question 2</div>
+                  <h2 class="quiz-question__title">Which of the following is a linear equation?</h2>
+                </div>
+                <span class="badge badge--warning">Incorrect</span>
+              </header>
+              <p><strong>Your answer:</strong> A) x<sup>2</sup> + 2x + 1 = 0</p>
+              <p><strong>Correct answer:</strong> B) 3x - 5 = 7</p>
+            </article>
+
+            <article class="score-answer score-answer--correct">
+              <header class="score-answer__header">
+                <div>
+                  <div class="score-answer__label">Question 3</div>
+                  <h2 class="quiz-question__title">Simplify the expression: 3(x + 2).</h2>
+                </div>
+                <span class="badge badge--success">Correct</span>
+              </header>
+              <p><strong>Your answer:</strong> B) 3x + 6</p>
+              <p><strong>Correct answer:</strong> B) 3x + 6</p>
+            </article>
+          </section>
+        </div>
+        <footer class="card__footer">
+          <a href="dashboard.html" class="btn btn--secondary">Back to Dashboard</a>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>

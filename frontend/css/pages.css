@@ -1,0 +1,151 @@
+/* pages.css - page-specific styling */
+
+.page-auth {
+  background: radial-gradient(circle at top, #dbeafe, #f3f4f6 55%);
+}
+
+.page-auth .card {
+  margin: 0 auto;
+}
+
+.page-dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-dashboard-header__meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.quiz-card__status {
+  margin-top: 0.5rem;
+}
+
+.quiz-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  gap: 1.5rem;
+}
+
+.quiz-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quiz-question {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.quiz-question__title {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quiz-sidebar {
+  align-self: flex-start;
+}
+
+.quiz-sidebar__card {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.score-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.score-answer {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.score-answer--correct {
+  background-color: #ecfdf3;
+  border-color: #bbf7d0;
+}
+
+.score-answer--incorrect {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+.score-answer__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.score-answer__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+
+.create-quiz-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 1.2fr);
+  gap: 1.5rem;
+}
+
+.create-quiz-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.create-question-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.correct-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #166534;
+}
+
+.correct-indicator__input {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .quiz-layout,
+  .create-quiz-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Student Dashboard</div>
+      </div>
+      <div class="chip-row" aria-label="Student summary">
+        <span class="chip">Completed: 3 quizzes</span>
+        <a href="profile.html" class="avatar" aria-label="View profile">
+          <span class="avatar__circle">JD</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main app-main--top">
+    <div class="app-container">
+      <header class="page-dashboard-header">
+        <div class="section-header">
+          <h1 class="section-header__title">Available Quizzes</h1>
+          <p class="section-header__subtitle">Select a quiz to begin. Your progress will be tracked per quiz.</p>
+        </div>
+        <div class="page-dashboard-header__meta">
+          <div>Today: Algebra &amp; Geometry practice.</div>
+          <div>Status legend: <span class="badge badge--success">Completed</span> <span class="badge badge--warning">In progress</span> <span class="badge badge--muted">Not started</span></div>
+        </div>
+        </header>
+
+        <section aria-label="Quiz list" class="grid grid--cards-3">
+        <!-- Example quiz card: Not started -->
+        <article class="card" aria-labelledby="quiz-algebra-title">
+          <header class="card__header">
+            <p class="card__meta">Mathematics</p>
+            <h2 id="quiz-algebra-title" class="card__title">Algebra Basics</h2>
+            <p class="card__subtitle">Linear equations, variables, and expressions.</p>
+          </header>
+          <div class="card__body">
+            <div class="quiz-card__status">
+              <span class="badge badge--muted">Not started</span>
+            </div>
+          </div>
+          <footer class="card__footer">
+            <form method="get" action="take-quiz.html">
+              <input type="hidden" name="quizId" value="1" />
+              <button type="submit" class="btn btn--primary">Take Quiz</button>
+            </form>
+          </footer>
+        </article>
+
+        <!-- Example quiz card: In progress -->
+        <article class="card" aria-labelledby="quiz-geometry-title">
+          <header class="card__header">
+            <p class="card__meta">Mathematics</p>
+            <h2 id="quiz-geometry-title" class="card__title">Geometry Practice</h2>
+            <p class="card__subtitle">Triangles, circles, and polygons.</p>
+          </header>
+          <div class="card__body">
+            <div class="quiz-card__status">
+              <span class="badge badge--warning">In progress</span>
+            </div>
+          </div>
+          <footer class="card__footer">
+            <form method="get" action="take-quiz.html">
+              <input type="hidden" name="quizId" value="2" />
+              <button type="submit" class="btn btn--primary">Continue</button>
+            </form>
+          </footer>
+        </article>
+
+        <!-- Example quiz card: Completed -->
+        <article class="card" aria-labelledby="quiz-history-title">
+          <header class="card__header">
+            <p class="card__meta">History</p>
+            <h2 id="quiz-history-title" class="card__title">World History</h2>
+            <p class="card__subtitle">Key events of the 20th century.</p>
+          </header>
+          <div class="card__body">
+            <div class="quiz-card__status">
+              <span class="badge badge--success">Completed</span>
+            </div>
+          </div>
+          <footer class="card__footer">
+            <form method="get" action="score.html">
+              <input type="hidden" name="quizId" value="3" />
+              <button type="submit" class="btn btn--secondary">View Score</button>
+            </form>
+          </footer>
+        </article>
+        </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>

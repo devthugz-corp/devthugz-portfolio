@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Teacher / Admin Dashboard</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Teacher: Jane Smith</span>
+        <a href="profile.html" class="avatar" aria-label="View admin profile">
+          <span class="avatar__circle">JS</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main app-main--top">
+    <div class="app-container">
+      <header class="page-dashboard-header">
+        <div class="section-header">
+          <h1 class="section-header__title">Your Quizzes</h1>
+          <p class="section-header__subtitle">Manage existing quizzes or create new ones for your students.</p>
+        </div>
+        <div>
+          <form method="get" action="create-quiz.html">
+            <button type="submit" class="btn btn--primary">Create Quiz</button>
+          </form>
+        </div>
+        </header>
+
+        <section aria-label="Created quizzes">
+          <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Subject</th>
+              <th>Status</th>
+              <th>Questions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Algebra Basics</td>
+              <td>Mathematics</td>
+              <td><span class="badge badge--success">Published</span></td>
+              <td>10</td>
+              <td>
+                <div class="chip-row">
+                  <a href="../student/take-quiz.html?quizId=1" class="chip">View</a>
+                  <a href="create-quiz.html?quizId=1" class="chip">Edit</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Geometry Practice</td>
+              <td>Mathematics</td>
+              <td><span class="badge badge--warning">Draft</span></td>
+              <td>8</td>
+              <td>
+                <div class="chip-row">
+                  <a href="create-quiz.html?quizId=2" class="chip">Continue editing</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">This table will map to a collection of <code>Quiz</code> entities for the logged-in teacher.</td>
+            </tr>
+          </tfoot>
+          </table>
+        </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>

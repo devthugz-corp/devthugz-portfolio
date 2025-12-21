@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Take Quiz | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Student | Taking Quiz</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Student: John Doe</span>
+        <span class="chip">Quiz: Algebra Basics</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main app-main--top">
+    <div class="app-container">
+      <header class="section-header">
+        <h1 class="section-header__title">Algebra Basics</h1>
+        <p class="section-header__subtitle">Read each question carefully and select the best answer. Your answers will be evaluated on submission.</p>
+      </header>
+
+      <section class="quiz-layout" aria-label="Quiz content">
+        <div class="quiz-questions">
+          <form class="form" method="post" action="score.html">
+            <input type="hidden" name="quiz.id" value="1" />
+            <input type="hidden" name="student.id" value="42" />
+
+            <!-- Question 1 -->
+            <article class="quiz-question">
+              <h2 class="quiz-question__title">1. What is the value of x in the equation 2x + 3 = 7?</h2>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="answers[0].selectedOption" value="A" required />
+                  <span>A) 1</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[0].selectedOption" value="B" />
+                  <span>B) 2</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[0].selectedOption" value="C" />
+                  <span>C) 3</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[0].selectedOption" value="D" />
+                  <span>D) 4</span>
+                </label>
+              </div>
+              <input type="hidden" name="answers[0].questionId" value="q1" />
+            </article>
+
+            <!-- Question 2 -->
+            <article class="quiz-question">
+              <h2 class="quiz-question__title">2. Which of the following is a linear equation?</h2>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="answers[1].selectedOption" value="A" required />
+                  <span>A) x<sup>2</sup> + 2x + 1 = 0</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[1].selectedOption" value="B" />
+                  <span>B) 3x - 5 = 7</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[1].selectedOption" value="C" />
+                  <span>C) xy = 10</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[1].selectedOption" value="D" />
+                  <span>D) x/y = 2</span>
+                </label>
+              </div>
+              <input type="hidden" name="answers[1].questionId" value="q2" />
+            </article>
+
+            <!-- Question 3 -->
+            <article class="quiz-question">
+              <h2 class="quiz-question__title">3. Simplify the expression: 3(x + 2).</h2>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="answers[2].selectedOption" value="A" required />
+                  <span>A) 3x + 2</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[2].selectedOption" value="B" />
+                  <span>B) 3x + 6</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[2].selectedOption" value="C" />
+                  <span>C) x + 6</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="answers[2].selectedOption" value="D" />
+                  <span>D) 3x - 6</span>
+                </label>
+              </div>
+              <input type="hidden" name="answers[2].questionId" value="q3" />
+            </article>
+
+            <div class="btn-row">
+              <a href="dashboard.html" class="btn btn--ghost">Back to Dashboard</a>
+              <button type="submit" class="btn btn--primary">Submit Quiz</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="quiz-sidebar" aria-label="Quiz info">
+          <div class="card quiz-sidebar__card">
+            <header class="card__header">
+              <p class="card__meta">Quiz summary</p>
+              <h2 class="card__title">Algebra Basics</h2>
+            </header>
+            <div class="card__body">
+              <ul class="list">
+                <li class="list__item list__item--muted">Questions: 3</li>
+                <li class="list__item list__item--muted">Estimated time: 10 minutes</li>
+                <li class="list__item list__item--muted">Attempts allowed: 1</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>

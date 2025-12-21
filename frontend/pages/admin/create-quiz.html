@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Quiz | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Teacher / Admin | Create Quiz</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Teacher: Jane Smith</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main app-main--top">
+    <div class="app-container">
+      <header class="section-header">
+        <h1 class="section-header__title">Create a New Quiz</h1>
+        <p class="section-header__subtitle">Define quiz metadata and add questions with multiple-choice options.</p>
+      </header>
+
+      <form class="form" method="post" action="dashboard.html">
+        <section class="card" aria-label="Quiz details">
+          <header class="card__header">
+            <p class="card__meta">Quiz</p>
+            <h2 class="card__title">Quiz Details</h2>
+          </header>
+          <div class="card__body">
+            <div class="form__row">
+              <label class="form__label" for="quiz-title">Title</label>
+              <input
+                class="form__control"
+                type="text"
+                id="quiz-title"
+                name="quiz.title"
+                required
+              />
+              <p class="form__hint">Maps to <code>Quiz.title</code>.</p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="quiz-description">Description</label>
+              <textarea
+                class="form__textarea"
+                id="quiz-description"
+                name="quiz.description"
+                required
+              ></textarea>
+              <p class="form__hint">Maps to <code>Quiz.description</code>.</p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="quiz-subject">Subject</label>
+              <input
+                class="form__control"
+                type="text"
+                id="quiz-subject"
+                name="quiz.subject"
+              />
+              <p class="form__hint">Optional metadata, maps to <code>Quiz.subject</code>.</p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="quiz-question-count">Number of questions</label>
+              <select
+                class="form__select"
+                id="quiz-question-count"
+                name="quiz.questionCount"
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <p class="form__hint">Backend can use this to decide how many <code>Question</code> entries to render (e.g., up to 10).</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="create-quiz-layout" aria-label="Quiz questions">
+          <div class="create-quiz-questions">
+            <!-- Question 1 template -->
+            <article class="create-question-card" aria-label="Question 1">
+              <header class="card__header">
+                <p class="card__meta">Question 1</p>
+                <h2 class="card__title">Question</h2>
+              </header>
+              <div class="card__body">
+                <div class="form__row">
+                  <label class="form__label" for="q0-text">Question text</label>
+                  <textarea
+                    class="form__textarea"
+                    id="q0-text"
+                    name="questions[0].text"
+                    required
+                  ></textarea>
+                  <p class="form__hint">Maps to <code>Question.text</code>.</p>
+                </div>
+
+                <div class="form__row">
+                  <span class="form__label">Options</span>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[0].options[0].text"
+                      placeholder="Option A"
+                      required
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[0].correctOptionIndex"
+                        value="0"
+                        required
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[0].options[1].text"
+                      placeholder="Option B"
+                      required
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[0].correctOptionIndex"
+                        value="1"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[0].options[2].text"
+                      placeholder="Option C"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[0].correctOptionIndex"
+                        value="2"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[0].options[3].text"
+                      placeholder="Option D"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[0].correctOptionIndex"
+                        value="3"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <p class="form__hint">Each option maps to an <code>Answer</code> or option value; the selected radio maps to the correct answer index.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Question 2 template -->
+            <article class="create-question-card" aria-label="Question 2">
+              <header class="card__header">
+                <p class="card__meta">Question 2</p>
+                <h2 class="card__title">Question</h2>
+              </header>
+              <div class="card__body">
+                <div class="form__row">
+                  <label class="form__label" for="q1-text">Question text</label>
+                  <textarea
+                    class="form__textarea"
+                    id="q1-text"
+                    name="questions[1].text"
+                  ></textarea>
+                  <p class="form__hint">Maps to <code>Question.text</code>.</p>
+                </div>
+
+                <div class="form__row">
+                  <span class="form__label">Options</span>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[1].options[0].text"
+                      placeholder="Option A"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[1].correctOptionIndex"
+                        value="0"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[1].options[1].text"
+                      placeholder="Option B"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[1].correctOptionIndex"
+                        value="1"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[1].options[2].text"
+                      placeholder="Option C"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[1].correctOptionIndex"
+                        value="2"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[1].options[3].text"
+                      placeholder="Option D"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[1].correctOptionIndex"
+                        value="3"
+                      />
+                      Correct
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Question 3 template -->
+            <article class="create-question-card" aria-label="Question 3">
+              <header class="card__header">
+                <p class="card__meta">Question 3</p>
+                <h2 class="card__title">Question</h2>
+              </header>
+              <div class="card__body">
+                <div class="form__row">
+                  <label class="form__label" for="q2-text">Question text</label>
+                  <textarea
+                    class="form__textarea"
+                    id="q2-text"
+                    name="questions[2].text"
+                  ></textarea>
+                  <p class="form__hint">Maps to <code>Question.text</code>.</p>
+                </div>
+
+                <div class="form__row">
+                  <span class="form__label">Options</span>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[2].options[0].text"
+                      placeholder="Option A"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[2].correctOptionIndex"
+                        value="0"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[2].options[1].text"
+                      placeholder="Option B"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[2].correctOptionIndex"
+                        value="1"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[2].options[2].text"
+                      placeholder="Option C"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[2].correctOptionIndex"
+                        value="2"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[2].options[3].text"
+                      placeholder="Option D"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[2].correctOptionIndex"
+                        value="3"
+                      />
+                      Correct
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Question 4 template -->
+            <article class="create-question-card" aria-label="Question 4">
+              <header class="card__header">
+                <p class="card__meta">Question 4</p>
+                <h2 class="card__title">Question</h2>
+              </header>
+              <div class="card__body">
+                <div class="form__row">
+                  <label class="form__label" for="q3-text">Question text</label>
+                  <textarea
+                    class="form__textarea"
+                    id="q3-text"
+                    name="questions[3].text"
+                  ></textarea>
+                  <p class="form__hint">Maps to <code>Question.text</code>.</p>
+                </div>
+
+                <div class="form__row">
+                  <span class="form__label">Options</span>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[3].options[0].text"
+                      placeholder="Option A"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[3].correctOptionIndex"
+                        value="0"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[3].options[1].text"
+                      placeholder="Option B"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[3].correctOptionIndex"
+                        value="1"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[3].options[2].text"
+                      placeholder="Option C"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[3].correctOptionIndex"
+                        value="2"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[3].options[3].text"
+                      placeholder="Option D"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[3].correctOptionIndex"
+                        value="3"
+                      />
+                      Correct
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Question 5 template -->
+            <article class="create-question-card" aria-label="Question 5">
+              <header class="card__header">
+                <p class="card__meta">Question 5</p>
+                <h2 class="card__title">Question</h2>
+              </header>
+              <div class="card__body">
+                <div class="form__row">
+                  <label class="form__label" for="q4-text">Question text</label>
+                  <textarea
+                    class="form__textarea"
+                    id="q4-text"
+                    name="questions[4].text"
+                  ></textarea>
+                  <p class="form__hint">Maps to <code>Question.text</code>.</p>
+                </div>
+
+                <div class="form__row">
+                  <span class="form__label">Options</span>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[4].options[0].text"
+                      placeholder="Option A"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[4].correctOptionIndex"
+                        value="0"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[4].options[1].text"
+                      placeholder="Option B"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[4].correctOptionIndex"
+                        value="1"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[4].options[2].text"
+                      placeholder="Option C"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[4].correctOptionIndex"
+                        value="2"
+                      />
+                      Correct
+                    </label>
+                  </div>
+
+                  <div class="form__row form__row--inline">
+                    <input
+                      class="form__control"
+                      type="text"
+                      name="questions[4].options[3].text"
+                      placeholder="Option D"
+                    />
+                    <label class="correct-indicator">
+                      <input
+                        class="correct-indicator__input"
+                        type="radio"
+                        name="questions[4].correctOptionIndex"
+                        value="3"
+                      />
+                      Correct
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside aria-label="Quiz publishing" class="card">
+            <header class="card__header">
+              <p class="card__meta">Publishing</p>
+              <h2 class="card__title">Publish Options</h2>
+            </header>
+            <div class="card__body">
+              <div class="form__row">
+                <label class="form__label" for="quiz-status">Status</label>
+                <select
+                  class="form__select"
+                  id="quiz-status"
+                  name="quiz.status"
+                >
+                  <option value="DRAFT">Draft</option>
+                  <option value="PUBLISHED">Published</option>
+                </select>
+                <p class="form__hint">Maps to <code>QuizStatus</code> enum in the backend.</p>
+              </div>
+
+              <div class="form__row">
+                <label class="form__label" for="quiz-attempts">Max attempts</label>
+                <input
+                  class="form__control"
+                  type="number"
+                  id="quiz-attempts"
+                  name="quiz.maxAttempts"
+                  min="1"
+                  value="1"
+                />
+                <p class="form__hint">Maps to <code>Quiz.maxAttempts</code>.</p>
+              </div>
+            </div>
+            <footer class="card__footer">
+              <button type="submit" name="action" value="save" class="btn btn--secondary">Save as Draft</button>
+              <button type="submit" name="action" value="publish" class="btn btn--primary">Publish</button>
+            </footer>
+          </aside>
+        </section>
+
+        <div class="btn-row">
+          <a href="dashboard.html" class="btn btn--ghost">Back to Dashboard</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>

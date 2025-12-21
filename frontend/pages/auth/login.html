@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Quiz Platform</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body class="app-shell page-auth">
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div>
+        <div class="app-header__title">Quiz Platform</div>
+        <div class="app-header__role">Authentication</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="app-card-page">
+      <article class="card card--elevated" aria-labelledby="login-title">
+        <header class="card__header">
+          <div class="card__meta">Welcome back</div>
+          <h1 id="login-title" class="card__title">Sign in to your account</h1>
+          <p class="card__subtitle">Use your student or teacher credentials.</p>
+        </header>
+
+        <div class="card__body">
+          <form class="form" method="get">
+            <div class="form__row">
+              <label class="form__label" for="username">Email or Username</label>
+              <input
+                class="form__control"
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="username"
+                required
+              />
+              <p class="form__hint">This will map to the <code>User.username</code> or <code>User.email</code> field.</p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="password">Password</label>
+              <input
+                class="form__control"
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                required
+              />
+              <p class="form__hint">This will map to <code>User.password</code> in the backend.</p>
+            </div>
+
+            <!-- Role will be resolved by backend based on credentials -->
+
+            <div class="btn-row">
+              <button
+                type="submit"
+                class="btn btn--primary btn--full"
+                formaction="../student/dashboard.html"
+              >
+                Login as Student
+              </button>
+            </div>
+
+            <div class="btn-row">
+              <button
+                type="submit"
+                class="btn btn--secondary btn--full"
+                formaction="../admin/dashboard.html"
+              >
+                Login as Teacher / Admin
+              </button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    &copy; <span>Quiz Platform</span>
+  </footer>
+</body>
+</html>
